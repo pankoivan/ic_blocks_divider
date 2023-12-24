@@ -1,5 +1,6 @@
 package utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -51,13 +52,19 @@ public final class Settings {
     }
 
     private static Path getAbsolutePath() throws URISyntaxException {
-        /*return Paths.get(new File(Settings.class
+
+        // для работы из jar-файла
+
+        return Paths.get(new File(Settings.class
                 .getProtectionDomain()
                 .getCodeSource()
                 .getLocation()
                 .toURI())
-                .getParent(), name);*/
-        return Paths.get("Settings.txt");
+                .getParent(), name);
+
+        // для тестирования из среды разработки
+
+        //return Paths.get("Settings.txt");
     }
 
     private static List<String> readAllLines() throws IOException, URISyntaxException {
