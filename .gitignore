@@ -1,2 +1,8 @@
 # Project exclude paths
 /out/
+
+# My
+/out2/
+.idea
+blocks.iml
+Settings.txt
